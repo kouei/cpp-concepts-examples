@@ -1,12 +1,13 @@
 CPP_STD := -std=c++23
 CPP_FLAG := -g -O0 -Wall $(CPP_STD)
+SRC_DIR := src
 MAIN_SRC := main.cpp
-EXAMPLES_FOLD := examples
-ALL_SRC := $(MAIN_SRC) $(EXAMPLES_FOLD)/concepts/*
+EXAMPLES_DIR := examples
+ALL_SRC := $(SRC_DIR)/* $(EXAMPLES_DIR)/concepts/*
 ARTIFACTS := main
 
-main: $(MAIN_SRC)
-	clang++ $(MAIN_SRC) $(CPP_FLAG) -o $@
+main: $(SRC_DIR)/*
+	clang++ $(SRC_DIR)/$(MAIN_SRC) $(CPP_FLAG) -o $@
 
 .PHONY: clang-tidy clang-format clean
 
